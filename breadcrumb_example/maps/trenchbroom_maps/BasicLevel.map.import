@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://b2oithqf3ewi4"
+path="res://.godot/imported/BasicLevel.map-b5c4af8f1279e986456c91ef94b769cf.tres"
+
+[deps]
+
+source_file="res://maps/trenchbroom_maps/BasicLevel.map"
+dest_files=["res://.godot/imported/BasicLevel.map-b5c4af8f1279e986456c91ef94b769cf.tres"]
+
+[params]
+
