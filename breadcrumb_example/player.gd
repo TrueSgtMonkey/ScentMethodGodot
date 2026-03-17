@@ -18,6 +18,7 @@ var current_move_inputs: int = 0
 var original_move_acceleration: float = 0.0
 
 func _ready() -> void:
+	GlobalControl.player_ref = self
 	gravity = ProjectSettings.get("physics/3d/default_gravity")
 	grounded_timer.connect("timeout", not_grounded)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dkoy711lev8cm"]
+
+[ext_resource type="Script" uid="uid://c7ju3bek44jit" path="res://scenes/ai/basic_enemy_no_model.gd" id="1_rc5as"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f1x1d"]
+radius = 0.125
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1x1d"]
+albedo_color = Color(1, 0.6627451, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rc5as"]
+material = SubResource("StandardMaterial3D_f1x1d")
+radius = 0.125
+height = 0.5
+radial_segments = 32
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rc5as"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_3qs7r"]
+material = SubResource("StandardMaterial3D_rc5as")
+size = Vector3(0.125, 0.125, 0.013)
+
+[node name="BasicEnemyNoModel" type="CharacterBody3D" unique_id=305431700]
+script = ExtResource("1_rc5as")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1274659025]
+shape = SubResource("CapsuleShape3D_f1x1d")
+
+[node name="EnemyMesh" type="MeshInstance3D" parent="." unique_id=1260163244]
+mesh = SubResource("CapsuleMesh_rc5as")
+
+[node name="ForwardFacingMesh" type="MeshInstance3D" parent="." unique_id=1453556740]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.21076798)
+mesh = SubResource("PrismMesh_3qs7r")
+
+[node name="LookAtTimer" type="Timer" parent="." unique_id=1446203242]
+wait_time = 0.125
+one_shot = true
+
+[node name="BounceTimer" type="Timer" parent="." unique_id=1640459131]
+wait_time = 0.2
+one_shot = true
