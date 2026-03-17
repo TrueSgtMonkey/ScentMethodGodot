@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://21l2s7qknwto" path="res://textures/wall.tres" id="5_duu80"]
 [ext_resource type="PackedScene" uid="uid://tyeecjvd5kma" path="res://player.tscn" id="6_dt5lh"]
 [ext_resource type="Material" uid="uid://5qartfdd28yh" path="res://textures/tile.tres" id="6_wlivp"]
+[ext_resource type="PackedScene" uid="uid://dkoy711lev8cm" path="res://scenes/ai/basic_enemy_no_model.tscn" id="8_vw3px"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dt5lh"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -593,3 +594,6 @@ light_color = Color(0.705241, 0.27466547, 0.13372192, 1)
 light_energy = 1.659
 shadow_enabled = true
 omni_range = 17.842
+
+[node name="BasicEnemyNoModel" parent="." unique_id=305431700 instance=ExtResource("8_vw3px")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4216418, 1.0810707, -4.0596414)
