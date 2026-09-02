@@ -24,7 +24,9 @@ material = SubResource("StandardMaterial3D_rc5as")
 size = Vector3(0.125, 0.125, 0.013)
 
 [node name="BasicEnemyNoModel" type="CharacterBody3D" unique_id=305431700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0011306256)
 script = ExtResource("1_rc5as")
+is_debug = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1274659025]
 shape = SubResource("CapsuleShape3D_f1x1d")
@@ -33,7 +35,7 @@ shape = SubResource("CapsuleShape3D_f1x1d")
 mesh = SubResource("CapsuleMesh_rc5as")
 
 [node name="ForwardFacingMesh" type="MeshInstance3D" parent="." unique_id=1453556740]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.21076798)
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 0, -0.211)
 mesh = SubResource("PrismMesh_3qs7r")
 
 [node name="LookAtTimer" type="Timer" parent="." unique_id=1446203242]
@@ -48,3 +50,19 @@ one_shot = true
 one_shot = true
 
 [node name="WallTimer" type="Timer" parent="." unique_id=993218816]
+
+[node name="IdleTimer" type="Timer" parent="." unique_id=2092093186]
+
+[node name="IdleLookAtTarget" type="Node3D" parent="." unique_id=1791538105]
+
+[node name="RayShotTimer" type="Timer" parent="." unique_id=1152684382]
+wait_time = 0.1
+one_shot = true
+
+[node name="LookForPlayerTimer" type="Timer" parent="." unique_id=838768334]
+wait_time = 0.1
+one_shot = true
+
+[node name="SpottedPlayerTimer" type="Timer" parent="." unique_id=1138729341]
+wait_time = 5.0
+one_shot = true

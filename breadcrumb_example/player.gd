@@ -11,11 +11,13 @@ extends CharacterBody3D
 @onready var pivot_ref: Node3D = $Pivot
 @onready var player_cam: Camera3D = $Pivot/PlayerCam
 @onready var grounded_timer: Timer = $GroundedTimer
+@onready var collision_shape: CollisionShape3D = $CollisionShape3D
 
 var gravity: float = 1.0
 var is_grounded: bool = false
 var current_move_inputs: int = 0
 var original_move_acceleration: float = 0.0
+var is_noclip_on: bool = false
 
 func _ready() -> void:
 	GlobalControl.player_ref = self
@@ -38,12 +40,11 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		is_grounded = true
 		grounded_timer.start()
-	else:
+	elif !is_noclip_on:
 		velocity.y -= gravity * delta
 
 	if is_grounded && Input.is_action_just_pressed("jump"):
-		velocity.y = jump_speed
-		
+		velocity.y = jump_speed if !is_noclip_on else 0.0
 
 	move_and_slide()
 
@@ -72,6 +73,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_released("jump"):
 		if velocity.y > 0.0:
 			velocity.y *= 0.25
+			
+	if Input.is_action_just_pressed("noclip"):
+		is_noclip_on = !is_noclip_on
+		collision_shape.disabled = is_noclip_on
+		print(name, ": is_noclip_on=", is_noclip_on)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
